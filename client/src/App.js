@@ -53,11 +53,29 @@ function App() {
     }
   }
 
+  async function deleteTodo(id) {
+    try {
+      setTodos(todos.filter(todo => todo.todo_id !== id));
+
+      const API_URL = `/todos/${id}`;
+      const options = {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json"
+        }
+      };
+
+      await fetch(API_URL, options);
+    } catch (err) {
+      console.error(err);
+    }
+  }
+
   return (
     <div className="App">
       <h1>My Todo App</h1>
       <AddTodo newTodo={newTodo} setNewTodo={setNewTodo} addTodo={addTodo} />
-      <TodosList todos={todos} />
+      <TodosList todos={todos} deleteTodo={deleteTodo} />
     </div>
   );
 }

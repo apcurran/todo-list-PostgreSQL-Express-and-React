@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function TodosList({ todos }) {
+export default function TodosList({ todos, deleteTodo }) {
     return (
         <div>
             <h2>Todos List</h2>
@@ -8,7 +8,7 @@ export default function TodosList({ todos }) {
                 {todos.map(todo => (
                     <li key={todo.todo_id} className="todo-item">
                         <span className="todo-item__desc">{todo.description}</span>
-                        <button className="todo-item__delete">Delete</button>
+                        <button onClick={() => deleteTodo(todo.todo_id)} className="todo-item__delete">Delete</button>
                     </li>
                 ))}
             </ul>
