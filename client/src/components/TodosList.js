@@ -1,31 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 
-export default function TodosList() {
-    const [todos, setTodos] = useState([]);
-
-    useEffect(() => {
-        async function fetchTodos() {
-            try {
-                // Make req to API
-                const API_URL = "/todos";
-                const result = await fetch(API_URL);
-                const data = await result.json();
-
-                setTodos(data);
-            } catch (err) {
-                console.error(err);
-            }
-        }
-
-        fetchTodos();
-    }, []);
-
+export default function TodosList({ todos }) {
     return (
         <div>
             <h2>Todos List</h2>
-            <ul>
+            <ul className="todos-list">
                 {todos.map(todo => (
-                    <li key={todo.todo_id}>{todo.description}</li>
+                    <li key={todo.todo_id} className="todo-item">
+                        <span className="todo-item__desc">{todo.description}</span>
+                        <button className="todo-item__delete">Delete</button>
+                    </li>
                 ))}
             </ul>
         </div>
