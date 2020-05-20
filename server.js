@@ -5,7 +5,6 @@ const express = require("express");
 const app = express();
 const PORT = process.env.PORT || 5000;
 const cors = require("cors");
-const pool = require("./config/db");
 // Import Routes
 const todoRouter = require("./routes/todo-router");
 
