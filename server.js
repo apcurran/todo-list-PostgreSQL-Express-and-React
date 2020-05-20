@@ -9,7 +9,7 @@ const cors = require("cors");
 const todoRouter = require("./routes/todo-router");
 
 // Middleware
-app.use(cors());
+// app.use(cors());
 app.use(express.json());
 // Routes //
 app.use("/todos", todoRouter);
