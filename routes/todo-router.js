@@ -46,22 +46,6 @@ router.get("/:id", async (req, res) => {
     }
 });
 
-// UPDATE a todo
-router.patch("/:id", async (req, res) => {
-    try {
-        const { id } = req.params;
-        const { description } = req.body;
-        const updateTodo = await pool.query(
-            "UPDATE todo SET description = $1 WHERE todo_id = $2",
-            [description, id]
-        );
-
-        res.json("Todo was updated!");
-    } catch (err) {
-        console.error(err);
-    }
-});
-
 // DELETE a todo
 router.delete("/:id", async (req, res) => {
     try {
