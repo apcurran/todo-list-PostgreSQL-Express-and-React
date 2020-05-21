@@ -75,9 +75,11 @@ function App() {
 
   return (
     <div className="App">
-      <h1>My Todo App</h1>
-      <AddTodo newTodo={newTodo} setNewTodo={setNewTodo} addTodo={addTodo} />
-      <TodosList todos={todos} deleteTodo={deleteTodo} />
+      <main className="main">
+        <h1 className="main__title">My Todo App</h1>
+        <AddTodo newTodo={newTodo} setNewTodo={setNewTodo} addTodo={addTodo} />
+        <TodosList todos={todos} deleteTodo={deleteTodo} />
+      </main>
     </div>
   );
 }
