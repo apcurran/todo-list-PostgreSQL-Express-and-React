@@ -55,8 +55,10 @@ function App() {
 
   async function deleteTodo(id) {
     try {
+      // Delete from DOM
       setTodos(todos.filter(todo => todo.todo_id !== id));
 
+      // Delete from db
       const API_URL = `/todos/${id}`;
       const options = {
         method: "DELETE",
